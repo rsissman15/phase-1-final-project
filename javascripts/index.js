@@ -3,9 +3,16 @@ let drinks=[{
     image:"https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg",
     ingredients:"Tequila, Triple Sec, Lime juice, Salt",
     instructions:"https://www.delish.com/cooking/recipe-ideas/a20139300/best-classic-margarita-recipe/",
+    button:"<3"},
+    {
+    name:"Martini",
+    image:"https://www.thecocktaildb.com/images/media/drink/71t8581504353095.jpg",
+    ingredients:"Gin, Dry Vermouth, Olive",
+    instructions:"https://www.thekitchn.com/how-to-make-a-classic-martini-240334",
     button:"<3"
-
-}]
+        
+    },
+    ]
 
 //Global variables
 const drinkList = () =>document.getElementById("drinks-list");
@@ -28,7 +35,7 @@ const renderDrinks = () => {
   const renderDrink = drink => {
     // render the drink to the page
     const col = document.createElement('div');
-    col.className = "col s12 m4 l4"
+    col.className = "col s15 m2"
   
     col.appendChild(createCard(drink))
   
@@ -58,32 +65,38 @@ const attachDrinksListEvent=()=>{
 
 
 const createCard=(drink)=>{
-    const divCard=document.createElement('div');
-    const divCardImage=document.createElement('div');
-    const image=document.createElement('img');
-    const span =document.createElement('span')
-    const button=document.createElement('a');
-    const divCardContent=document.createElement('div')
-    const p=document.createElement('p');
+    const divCard = document.createElement('div');
+    const divImage = document.createElement('div');
+    const divCardContent = document.createElement('div');
+    const divCardAction = document.createElement('div');
+    const img = document.createElement('img');
+    const span = document.createElement('span');
+    const p = document.createElement('p')
+    const button = document.createElement('a');
 
-    divCard.className='card';
-    divCard.className='card-image'
-    span.className='card-title'
-    button.className="btn-floating halfway-fab waves-effect waves-light red";
-    divCardContent.className='Card Content'
+    divCard.className = "card";
+    divImage.className = "card-image";
+    divCardContent.className = "card-content";
+    divCardAction.className = "card-action";
+    span.className = 'card-title';
 
-    image.setAttribute('src',"https://www.thecocktaildb.com/images/media/drink/71t8581504353095.jpg")
 
-    span.innerText="Card Title";
-    p.innerText="placeholder"
+    img.setAttribute("src", "https://www.thecocktaildb.com/images/media/drink/71t8581504353095.jpg");
+    //link1.setAttribute("href", "#");
 
-    divCardImage.appendChild(image);
-    divCardImage.appendChild(span);
+    span.innerText = "card title";
+    p.innerText = "placeholder";
+    button.innerText = "<3";
+
+    divImage.appendChild(img);
+    divImage.appendChild(span);
     divCardContent.appendChild(p);
- 
-    divCard.appendChild(divCardImage);
+    divCardAction.appendChild(button);
+
+    divCard.appendChild(divImage);
     divCard.appendChild(divCardContent);
-    
+    divCard.appendChild(divCardAction);
+
     return divCard;
 }
 //Resets the page
