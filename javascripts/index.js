@@ -35,7 +35,7 @@ const renderDrinks = () => {
   const renderDrink = drink => {
     // render the drink to the page
     const col = document.createElement('div');
-    col.className = "col s15 m2"
+    col.className = "col s12 m4"
   
     col.appendChild(createCard(drink))
   
@@ -71,7 +71,8 @@ const createCard=(drink)=>{
     const divCardAction = document.createElement('div');
     const img = document.createElement('img');
     const span = document.createElement('span');
-    const p = document.createElement('p')
+    const pIngredients = document.createElement('p')
+    const instructionsLink= document.createElement('a')
     const button = document.createElement('a');
 
     divCard.className = "card";
@@ -79,18 +80,23 @@ const createCard=(drink)=>{
     divCardContent.className = "card-content";
     divCardAction.className = "card-action";
     span.className = 'card-title';
+    button.className="waves-effect waves-light purple btn";
+    instructionsLink.setAttribute("href", drink.instructions);
 
 
-    img.setAttribute("src", "https://www.thecocktaildb.com/images/media/drink/71t8581504353095.jpg");
-    //link1.setAttribute("href", "#");
+    img.setAttribute("src", drink.image);
 
-    span.innerText = "card title";
-    p.innerText = "placeholder";
-    button.innerText = "<3";
+
+    span.innerText = drink.name;
+    pIngredients.innerText = drink.ingredients;
+    instructionsLink.innerText="Instructions";
+
+    button.innerText = "Like";
 
     divImage.appendChild(img);
     divImage.appendChild(span);
-    divCardContent.appendChild(p);
+    divCardContent.appendChild(pIngredients);
+    divCardAction.appendChild(instructionsLink);
     divCardAction.appendChild(button);
 
     divCard.appendChild(divImage);
