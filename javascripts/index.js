@@ -11,6 +11,29 @@ let drinks=[{
 const drinkList = () =>document.getElementById("drinks-list");
 const mainDiv=()=>document.getElementById("main");
 
+const renderDrinks = () => {
+    // iterate over meals and display them as cards
+    const row = document.createElement('row');
+    row.className = "row";
+  
+    drinks.map(drink=> {
+      const col = renderDrink(drink)
+  
+      row.appendChild(col);
+    });
+  
+    mainDiv().appendChild(row);
+  }
+  
+  const renderDrink = drink => {
+    // render the drink to the page
+    const col = document.createElement('div');
+    col.className = "col s12 m4 l4"
+  
+    col.appendChild(createCard(drink))
+  
+    return col;
+  }
 
 
 //Event Handler
