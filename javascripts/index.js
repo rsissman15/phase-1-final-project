@@ -63,8 +63,21 @@ const attachDrinksListEvent=()=>{
     drinkList().addEventListener('click',renderDrinksPage)
 }
 
+//Function to handle button click
+const buttonClick=(event)=>{
+    if(event.target.style.color==="red"){
+        event.target.style.color="white";
+    }
+    else{
+        event.target.style.color='red';
+
+    }
+}
+
 
 const createCard=(drink)=>{
+
+    //Creates card elements
     const divCard = document.createElement('div');
     const divImage = document.createElement('div');
     const divCardContent = document.createElement('div');
@@ -81,6 +94,7 @@ const createCard=(drink)=>{
     divCardAction.className = "card-action";
     span.className = 'card-title';
     button.className="waves-effect waves-light purple btn";
+    button.id='like-button';
     instructionsLink.setAttribute("href", drink.instructions);
 
 
@@ -93,6 +107,8 @@ const createCard=(drink)=>{
 
     button.innerText = "Like";
 
+
+
     divImage.appendChild(img);
     divImage.appendChild(span);
     divCardContent.appendChild(pIngredients);
@@ -103,6 +119,8 @@ const createCard=(drink)=>{
     divCard.appendChild(divCardContent);
     divCard.appendChild(divCardAction);
 
+    button.addEventListener('click',buttonClick);
+
     return divCard;
 }
 //Resets the page
@@ -111,9 +129,9 @@ const resetMain=()=>{
 }
 
 
+
 document.addEventListener('DOMContentLoaded',()=>{
     attachDrinksListEvent();
-
     
 })
 
