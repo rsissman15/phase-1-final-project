@@ -31,15 +31,20 @@ const renderDrinks = () => {
   const renderDrink = drink => {
     // render the drink to the page
     const col = document.createElement('div');
-    col.className = "col s12 m4"
+    col.className = "col s10 m3"
   
     col.appendChild(createCard(drink))
   
     return col;
   }
 
+//Resets the page
+const resetMain=()=>{
+    mainDiv().innerHTML="";
+}
+//Event Handler fpr when you switch tabs
 
-//Event Handler
+
 const renderDrinksPage=(e)=>{
     e.preventDefault();
     resetMain();
@@ -54,6 +59,9 @@ const renderDrinksPage=(e)=>{
 
      renderDrinks();  
 }
+
+
+
 //Event Listener
 const attachDrinksListEvent=()=>{
     drinkList().addEventListener('click',renderDrinksPage)
@@ -118,10 +126,6 @@ const createCard=(drink)=>{
     button.addEventListener('click',buttonClick);
 
     return divCard;
-}
-//Resets the page
-const resetMain=()=>{
-    mainDiv().innerHTML="";
 }
 
 

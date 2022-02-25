@@ -4,48 +4,60 @@
             "name":"Margarita",
             "image":"https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg",
             "ingredients":"Tequila, Triple Sec, Lime juice, Salt",
-            "instructions":"https://www.delish.com/cooking/recipe-ideas/a20139300/best-classic-margarita-recipe/",
-            "button":"<3"
+            "instructions":"https://www.delish.com/cooking/recipe-ideas/a20139300/best-classic-margarita-recipe/"
+         
         },
         {
             "name":"Martini",
             "image":"https://www.thecocktaildb.com/images/media/drink/71t8581504353095.jpg",
             "ingredients":"Gin, Dry Vermouth, Olive",
-            "instructions":"https://www.thekitchn.com/how-to-make-a-classic-martini-240334",
-            "button":"<3"
+            "instructions":"https://www.thekitchn.com/how-to-make-a-classic-martini-240334"
+            
             
         },
         {
             "name":"Gin Sour",
             "image":"https://www.thecocktaildb.com/images/media/drink/noxp7e1606769224.jpg",
             "ingredients":"Gin, Lemon juice, Sugar, Orange, Maraschino cherry",
-            "instructions":"https://www.liquor.com/gin-sour-cocktail-recipe-5101079",
-            "button":"<3"
+            "instructions":"https://www.liquor.com/gin-sour-cocktail-recipe-5101079"
+         
             
         },
         {
             "name":"Old Fashioned",
             "image":"https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg",
             "ingredients":"Bourbon, Angostura bitters, Sugar, Water",
-            "instructions":"https://www.liquor.com/recipes/bourbon-old-fashioned/",
-            "button":"<3"
+            "instructions":"https://www.liquor.com/recipes/bourbon-old-fashioned/"
+  
 
         },
         {
             "name":"Long Island Iced Tea",
             "image":"https://www.thecocktaildb.com/images/media/drink/wx7hsg1504370510.jpg",
             "ingredients":"Vodka, Tequila, Rum, Gin, Coca-Cola, Lemon peel",
-            "instructions":"https://www.liquor.com/recipes/long-island-iced-tea/",
-            "button":"<3"
+            "instructions":"https://www.liquor.com/recipes/long-island-iced-tea/"
+            
 
         },
         {
             "name":"Gimlet",
             "image":"https://www.thecocktaildb.com/images/media/drink/3xgldt1513707271.jpg",
             "ingredients":"Gin, Lime juice, Sugar syrup, Lime",
-            "instructions":"https://www.liquor.com/recipes/gimlet/",
-            "button":"<3"
+            "instructions":"https://www.liquor.com/recipes/gimlet/"
+           
+        },
+        {
+            "name":"Mojito",
+            "image":"https://www.thecocktaildb.com/images/media/drink/metwgh1606770327.jpg",
+            "ingredients":"Light Rum, Lime, Sugar, Mint, Soda Water",
+            "instructions":"https://www.allrecipes.com/recipe/147363/the-real-mojito/"
+     
+        },{
+        "name":"White Wine Sangria",
+        "image":"https://www.thecocktaildb.com/images/media/drink/hnuod91587851576.jpg",
+        "ingredients":"Lemon, Lime, White wine, Strawberries, Apple, Apple Brandy, Sod water",
+        "instructions":"https://www.thespruceeats.com/simple-white-wine-sangria-recipe-3511043"
         }
-        
+
     ]
 }
