@@ -1,22 +1,18 @@
-let drinks=[{
-    name:"Margarita",
-    image:"https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg",
-    ingredients:"Tequila, Triple Sec, Lime juice, Salt",
-    instructions:"https://www.delish.com/cooking/recipe-ideas/a20139300/best-classic-margarita-recipe/",
-    button:"<3"},
-    {
-    name:"Martini",
-    image:"https://www.thecocktaildb.com/images/media/drink/71t8581504353095.jpg",
-    ingredients:"Gin, Dry Vermouth, Olive",
-    instructions:"https://www.thekitchn.com/how-to-make-a-classic-martini-240334",
-    button:"<3"
-        
-    },
-    ]
+let drinks=[];
 
 //Global variables
 const drinkList = () =>document.getElementById("drinks-list");
 const mainDiv=()=>document.getElementById("main");
+
+//Functions
+const fetchDrinks=()=>{
+    fetch("http://localhost:3000/drinks")
+        .then(res=>res.json())
+        .then(data=>{
+        drinks=data;
+    })
+}
+
 
 const renderDrinks = () => {
     // iterate over meals and display them as cards
@@ -131,6 +127,7 @@ const resetMain=()=>{
 
 
 document.addEventListener('DOMContentLoaded',()=>{
+    fetchDrinks();
     attachDrinksListEvent();
     
 })
