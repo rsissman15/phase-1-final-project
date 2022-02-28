@@ -91,6 +91,10 @@ const createCard=(drink)=>{
     const pIngredients = document.createElement('p')
     const instructionsLink= document.createElement('a')
     const button = document.createElement('a');
+    const form= document.createElement("form");
+    const inputComment=document.createElement('input')
+    const inputSubmit=document.createElement('a')
+    
 
     divCard.className = "card";
     divImage.className = "card-image";
@@ -100,6 +104,11 @@ const createCard=(drink)=>{
     button.className="waves-effect waves-light purple btn";
     button.id='like-button';
     instructionsLink.setAttribute("href", drink.instructions);
+    inputSubmit.className="blue btn"
+    inputComment.setAttribute("type", "text");
+    inputSubmit.setAttribute("type", "submit");
+
+
 
 
     img.setAttribute("src", drink.image);
@@ -108,8 +117,9 @@ const createCard=(drink)=>{
     span.innerText = drink.name;
     pIngredients.innerText = drink.ingredients;
     instructionsLink.innerText="Instructions";
-
     button.innerText = "Like";
+    inputSubmit.innerText='Submit'
+
 
 
 
@@ -118,10 +128,15 @@ const createCard=(drink)=>{
     divCardContent.appendChild(pIngredients);
     divCardAction.appendChild(instructionsLink);
     divCardAction.appendChild(button);
+    form.appendChild(inputComment)
+    form.appendChild(inputSubmit);
+    divCardAction.appendChild(form);
+
 
     divCard.appendChild(divImage);
     divCard.appendChild(divCardContent);
     divCard.appendChild(divCardAction);
+
 
     button.addEventListener('click',buttonClick);
 
