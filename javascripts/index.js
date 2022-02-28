@@ -3,6 +3,8 @@ let drinks=[];
 //Global variables
 const drinkList = () =>document.getElementById("drinks-list");
 const mainDiv=()=>document.getElementById("main");
+const homePageLink=()=>document.getElementById('home_page');
+console.log(homePageLink());
 
 //Functions
 const fetchDrinks=()=>{
@@ -42,9 +44,9 @@ const renderDrinks = () => {
 const resetMain=()=>{
     mainDiv().innerHTML="";
 }
-//Event Handler fpr when you switch tabs
 
 
+//Event Handler for when you switch to the drink tabs
 const renderDrinksPage=(e)=>{
     e.preventDefault();
     resetMain();
@@ -59,13 +61,29 @@ const renderDrinksPage=(e)=>{
 
      renderDrinks();  
 }
+//Event handler for when you switch back to the home page
+const renderHomePage=e=>{
+    e.preventDefault();
+    resetMain();
+   
+    const h1 = document.createElement('h1');
+    h1.classList.add('center-align');
+    h1.innerText = 'Welcome to My Drink Page'
+    mainDiv().appendChild(h1);
+
+}
 
 
-
-//Event Listener
+//Event Listener for switching between tabs
 const attachDrinksListEvent=()=>{
     drinkList().addEventListener('click',renderDrinksPage)
 }
+
+const renderHomePageEventeListener=()=>{
+    homePageLink().addEventListener('click',renderHomePage);
+}
+
+
 
 //Function to handle button click
 const buttonClick=(event)=>{
@@ -107,6 +125,7 @@ const createCard=(drink)=>{
     inputSubmit.className="blue btn"
     inputComment.setAttribute("type", "text");
     inputSubmit.setAttribute("type", "submit");
+    inputSubmit.id='submit-button';
 
 
 
@@ -138,7 +157,13 @@ const createCard=(drink)=>{
     divCard.appendChild(divCardAction);
 
 
+    //Button event listener
     button.addEventListener('click',buttonClick);
+
+    // form.addEventListener('submit',e=>{
+    //     e.preventDefault();
+    //     console.log(e);
+    // });
 
     return divCard;
 }
@@ -148,6 +173,8 @@ const createCard=(drink)=>{
 document.addEventListener('DOMContentLoaded',()=>{
     fetchDrinks();
     attachDrinksListEvent();
+    renderHomePageEventeListener();
+
     
 })
 
