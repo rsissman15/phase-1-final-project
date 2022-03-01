@@ -193,8 +193,27 @@ const renderCreateDrinkPageEvent=()=>{
 
 const submitFormEvent=e=>{
     e.preventDefault();
+    // const drinkObject={}
+    
+    // drinkObject.name=e.target.name.value;
+    // drinkObject.image=e.target.image.value;
+    // drinkObject.ingredients=e.target.ingredients.value;
+    // drinkObject.instructions=e.target.instructions.value;
 
-    console.log(e.target.children)
+    fetch('http://localhost:3000/drinks',{
+        method: 'POST',
+        headers:{
+            "Accept":"application/json",
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+            name:e.target.name.value,
+            image:e.target.image.value,
+            ingredients:e.target.ingredients.value,
+            instructions:e.target.instructions.value
+
+        })
+    })
 }
 
 
