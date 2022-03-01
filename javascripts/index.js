@@ -193,12 +193,6 @@ const renderCreateDrinkPageEvent=()=>{
 
 const submitFormEvent=e=>{
     e.preventDefault();
-    // const drinkObject={}
-    
-    // drinkObject.name=e.target.name.value;
-    // drinkObject.image=e.target.image.value;
-    // drinkObject.ingredients=e.target.ingredients.value;
-    // drinkObject.instructions=e.target.instructions.value;
 
     fetch('http://localhost:3000/drinks',{
         method: 'POST',
@@ -214,6 +208,8 @@ const submitFormEvent=e=>{
 
         })
     })
+    .then(res=>res.json())
+    .then(drink=>drinks.push(drink))
 }
 
 

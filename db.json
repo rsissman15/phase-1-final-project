@@ -60,8 +60,29 @@
       "name": "Bourbon Sour",
       "image": "https://www.thecocktaildb.com/images/media/drink/dms3io1504366318.jpg",
       "ingredients": "Bourbon, Lemon Juice, Sugar, Orange, Maraschino cherry",
-      "instructions": "https://www.bonappetit.com/recipe/whiskey-sour",
+      "instructions": "https://www.foodrepublic.com/recipes/bourbon-sour-cocktail-recipe/",
       "id": 9
+    },
+    {
+      "name": "Pina Colada",
+      "image": "https://www.thecocktaildb.com/images/media/drink/cpf4j51504371346.jpg",
+      "ingredients": "Light rum, Coconut milk, Pineapple",
+      "instructions": "https://www.simplyrecipes.com/recipes/blender_pina_colada/",
+      "id": 10
+    },
+    {
+      "name": "Strawberry Daiquiri",
+      "image": "https://www.thecocktaildb.com/images/media/drink/deu59m1504736135.jpg",
+      "ingredients": "Strawberry schnapps, Light rum, Lime juice, Powdered sugar, Strawberries",
+      "instructions": "https://www.allrecipes.com/recipe/32352/best-strawberry-daiquiri/",
+      "id": 11
+    },
+    {
+      "name": "Vodka Strawberry Lemonade",
+      "image": "https://www.thecocktaildb.com/images/media/drink/spvvxp1468924425.jpg",
+      "ingredients": "Lemon, Vodka, Sugar, Strawberries, Water",
+      "instructions": "https://www.cakenknife.com/vodka-strawberry-lemonade/",
+      "id": 12
     }
   ]
 }
