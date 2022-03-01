@@ -66,11 +66,12 @@ const renderHomePage=e=>{
 }
 
 const renderCreateDrinkPage=e=>{
+    //resets the create drink page and formats the page
     e.preventDefault();
     resetMain();
+    renderCreateDrinkForm();
 
 
-    //const form
 }
 
 const renderDrink = drink => {
@@ -86,7 +87,7 @@ const renderDrink = drink => {
 const renderDrinks = () => {
     // iterate over meals and display them as cards
     const row = document.createElement('row');
-    row.className = "row d-flex align-items-stretch";
+    row.className = "row";
   
     drinks.map(drink=> {
       const col = renderDrink(drink)
@@ -97,7 +98,80 @@ const renderDrinks = () => {
     mainDiv().appendChild(row);
   }
   
+const renderCreateDrinkForm=()=>{
+    //creates the drink form
+    const h1 = document.createElement('h1');
+    const form=document.createElement('form');
+    const nameDiv=document.createElement('div');
+    const nameInput=document.createElement('input');
+    const nameLabel=document.createElement('label');
+    const imageDiv=document.createElement('div');
+    const imageInput=document.createElement('input');
+    const imageLabel=document.createElement('label');
+    const ingredientsDiv=document.createElement('div');
+    const ingredientsInput=document.createElement('input');
+    const ingredientsLabel=document.createElement('label');
+    const instructionsDiv=document.createElement('div');
+    const instructionsInput=document.createElement('input');
+    const instructionsLabel=document.createElement('label');
+    const submitButton=document.createElement('input');
 
+    h1.classList.add('center-align');
+    nameDiv.className='input-field';
+    imageDiv.className='input-field';
+    ingredientsDiv.className='input-field';
+    instructionsDiv.className='input-field';
+    submitButton.className='btn deep-purple lighten-1'
+
+    nameInput.setAttribute('id','name');
+    nameInput.setAttribute('type','text');
+    nameLabel.setAttribute('for', 'name');
+    imageInput.setAttribute('id','image');
+    imageInput.setAttribute('type','text');
+    imageLabel.setAttribute('for', 'image');
+    ingredientsInput.setAttribute('id','ingredients');
+    ingredientsInput.setAttribute('type','text');
+    ingredientsLabel.setAttribute('for', 'ingredients');
+    instructionsInput.setAttribute('id','instructions');
+    instructionsInput.setAttribute('type','url');
+    instructionsLabel.setAttribute('for', 'instructions');
+    submitButton.setAttribute('type','submit');
+    submitButton.setAttribute('value','Create Drink')
+
+
+
+
+
+    nameLabel.innerText='Name';
+    imageLabel.innerText='Image';
+    ingredientsLabel.innerText='Ingredients'
+    instructionsLabel.innerText='Instructions'
+    h1.innerText = 'Create a Drink';
+
+    nameDiv.appendChild(nameInput);
+    nameDiv.appendChild(nameLabel);
+    form.appendChild(nameDiv);
+    imageDiv.appendChild(imageInput);
+    imageDiv.appendChild(imageLabel);
+    form.appendChild(imageDiv);
+    ingredientsDiv.appendChild(ingredientsInput);
+    ingredientsDiv.appendChild(ingredientsLabel);
+    form.appendChild(ingredientsDiv);
+    instructionsDiv.appendChild(instructionsInput);
+    instructionsDiv.appendChild(instructionsLabel);
+    form.appendChild(instructionsDiv);
+    form.appendChild(submitButton);
+
+
+
+    form.addEventListener("submit",submitFormEvent)
+
+    mainDiv().appendChild(h1);
+    mainDiv().appendChild(form);
+
+
+
+}
 
 
 //Event Listener
@@ -115,6 +189,12 @@ const renderCreateDrinkPageEvent=()=>{
     //Event Listener for switching to create drink tab
     createDrinkLink().addEventListener('click',renderCreateDrinkPage)
 
+}
+
+const submitFormEvent=e=>{
+    e.preventDefault();
+
+    console.log(e.target.children)
 }
 
 
@@ -138,7 +218,7 @@ const createCard=(drink)=>{
     divCardContent.className = "card-content";
     divCardAction.className = "card-action";
     span.className = 'card-title';
-    button.className="waves-effect waves-light purple btn";
+    button.className="waves-effect waves-lighten-1 purple btn";
     button.id='like-button';
     buttonI.className="material-icons center"
     buttonI.id='heart-button';
