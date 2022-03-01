@@ -210,7 +210,7 @@ const submitFormEvent=e=>{
             name:e.target.name.value,
             image:e.target.image.value,
             ingredients:e.target.ingredients.value,
-            instructions:e.target.instructions.value
+            instructions:e.target.instructions.value,
 
         })
     })
