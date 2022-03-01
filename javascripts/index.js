@@ -2,7 +2,7 @@
 const drinkList = () =>document.getElementById("drinks-list");
 const mainDiv=()=>document.getElementById("main");
 const homePageLink=()=>document.getElementById('home_page');
-console.log(homePageLink());
+const createDrinkLink=()=>document.getElementById("create-drinks")
 let drinks=[];
 
 //Functions
@@ -65,10 +65,28 @@ const renderHomePage=e=>{
 
 }
 
+const renderCreateDrinkPage=e=>{
+    e.preventDefault();
+    resetMain();
+
+
+    //const form
+}
+
+const renderDrink = drink => {
+    // render the drink to the page
+    const col = document.createElement('div');
+    col.className = "col s10 m3"
+  
+    col.appendChild(createCard(drink))
+  
+    return col;
+  }
+
 const renderDrinks = () => {
     // iterate over meals and display them as cards
     const row = document.createElement('row');
-    row.className = "row";
+    row.className = "row d-flex align-items-stretch";
   
     drinks.map(drink=> {
       const col = renderDrink(drink)
@@ -79,29 +97,25 @@ const renderDrinks = () => {
     mainDiv().appendChild(row);
   }
   
-  const renderDrink = drink => {
-    // render the drink to the page
-    const col = document.createElement('div');
-    col.className = "col s10 m3"
-  
-    col.appendChild(createCard(drink))
-  
-    return col;
-  }
 
 
 
 //Event Listener
-const attachDrinksListEvent=()=>{
+const renderhDrinksListPageEvent=()=>{
     //Event Listener for switching to drinks tab
     drinkList().addEventListener('click',renderDrinksPage)
 }
 
-const renderHomePageEventListener=()=>{
+const renderHomePageEvent=()=>{
     //Event Listener for switching to home tab
     homePageLink().addEventListener('click',renderHomePage);
 }
 
+const renderCreateDrinkPageEvent=()=>{
+    //Event Listener for switching to create drink tab
+    createDrinkLink().addEventListener('click',renderCreateDrinkPage)
+
+}
 
 
 //Creates card
@@ -119,17 +133,17 @@ const createCard=(drink)=>{
     const button = document.createElement('a');
     const buttonI=document.createElement('i');
 
-    divCard.className = "card";
+    divCard.className = "card medium";
     divImage.className = "card-image";
     divCardContent.className = "card-content";
     divCardAction.className = "card-action";
     span.className = 'card-title';
     button.className="waves-effect waves-light purple btn";
     button.id='like-button';
-    buttonI.className="material-icons right"
+    buttonI.className="material-icons center"
     buttonI.id='heart-button';
     instructionsLink.setAttribute("href", drink.instructions);
-    instructionsLink.color='purple'
+    instructionsLink.style='color:purple'
 
 
 
@@ -162,12 +176,6 @@ const createCard=(drink)=>{
 
     //Button event listener
     button.addEventListener('click',buttonClick);
-
-    // form.addEventListener('submit',e=>{
-    //     e.preventDefault();
-    //     console.log(e);
-    // });
-
     return divCard;
 }
 
@@ -176,8 +184,10 @@ const createCard=(drink)=>{
 
 document.addEventListener('DOMContentLoaded',()=>{
     fetchDrinks();
-    attachDrinksListEvent();
-    renderHomePageEventListener();
+    renderhDrinksListPageEvent();
+    renderHomePageEvent();
+    renderCreateDrinkPageEvent();
+    
 
     
 })
