@@ -21,4 +21,13 @@ data using a JSON server. Run `json-server --watch db.json` to start the server.
 
 2. Once you run the server, you will be directed to the home page. If you click on the "Drink List" tab, you will see cards with a drink's image, ingredients, instructions and a heart button. If a drink interests you, you can click the heart button and that way you know later on what you want to make.
 
-3. 
+3. If you want to add your own drink, you can click on the "Create Drinks" tab. A form will appear on the page and you will insert the name, image, ingredients and instructions url. After you are done filling out the information, you will click the "Create Drink" button and your drink will now appear on the "Drink List" tab.
+
+## Technologies used
+
+This web app was made using: 
+- [Materalize](https://materializecss.com/) (a CSS framework) 
+- Vanilla JavaScript  
+- JSON server
+
+> **Note**: This app is an SPA (single page application)
