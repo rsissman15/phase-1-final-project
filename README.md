@@ -11,3 +11,10 @@ Over the past year, one of my favorite weekend activities has been cooking a goo
 
 ### How to Use
 
+1. All of the drink data is stored in the `db.json` file. You'll want to access this
+data using a JSON server. Run `json-server --watch db.json` to start the server. This will create a server storing all of our drink data at `http://localhost:3000/drinks`. You can access an indvidual drink at `http://localhost:3000/drinks/:id`.
+
+    > **Note:** we are using `:id` here as a variable value that indicates the path
+    > to a specific drink. To navigate (or send a request) to that path, the `id`
+    > number will be inserted into the URL in place of `:id`, e.g.,
+    > `http://localhost:3000/drinks/1`
