@@ -18,3 +18,7 @@ data using a JSON server. Run `json-server --watch db.json` to start the server.
     > to a specific drink. To navigate (or send a request) to that path, the `id`
     > number will be inserted into the URL in place of `:id`, e.g.,
     > `http://localhost:3000/drinks/1`
+
+2. Once you run the server, you will be directed to the home page. If you click on the "Drink List" tab, you will see cards with a drink's image, ingredients, instructions and a heart button. If a drink interests you, you can click the heart button and that way you know later on what you want to make.
+
+3. 
