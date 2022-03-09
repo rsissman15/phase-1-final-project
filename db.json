@@ -83,6 +83,13 @@
       "ingredients": "Lemon, Vodka, Sugar, Strawberries, Water",
       "instructions": "https://www.cakenknife.com/vodka-strawberry-lemonade/",
       "id": 12
+    },
+    {
+      "name": "Paloma",
+      "image": "https://www.thecocktaildb.com/images/media/drink/samm5j1513706393.jpg",
+      "ingredients": "Tequila, Lime juice, Grapefruit soda",
+      "instructions": "https://www.liquor.com/recipes/paloma/",
+      "id": 13
     }
   ]
 }

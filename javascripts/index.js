@@ -32,9 +32,6 @@ const resetMain=()=>{
 }
 
 
-
-
-
 //Render 
 
 const renderDrinksPage=(e)=>{
@@ -44,7 +41,7 @@ const renderDrinksPage=(e)=>{
 
      //create header and style it
      const h3=document.createElement('h3');
-     h3.innerHTML="Drinks List";
+     h3.innerHTML="Drink List";
      h3.className="center-align";
      h3.style.marginTop="10px";
      h3.style.paddingTop="10px";
@@ -60,7 +57,7 @@ const renderHomePage=e=>{
    
     const h1 = document.createElement('h1');
     h1.classList.add('center-align');
-    h1.innerText = 'Welcome to My Drink Page'
+    h1.innerText = 'Welcome to My Cocktail Site'
     mainDiv().appendChild(h1);
 
 }
@@ -97,6 +94,69 @@ const renderDrinks = () => {
   
     mainDiv().appendChild(row);
   }
+
+
+//Create Card and Form
+  const createCard=(drink)=>{
+
+    //Creates card elements
+    const divCard = document.createElement('div');
+    const divImage = document.createElement('div');
+    const divCardContent = document.createElement('div');
+    const divCardAction = document.createElement('div');
+    const img = document.createElement('img');
+    const span = document.createElement('span');
+    const pIngredients = document.createElement('p')
+    const instructionsLink= document.createElement('a')
+    const button = document.createElement('a');
+    const buttonI=document.createElement('i');
+
+    divCard.className = "card medium";
+    divImage.className = "card-image";
+    divCardContent.className = "card-content";
+    divCardAction.className = "card-action";
+    span.className = 'card-title';
+    button.className="waves-effect waves-lighten-1 purple btn";
+    button.id='like-button';
+    buttonI.className="material-icons center"
+    buttonI.id='heart-button';
+    instructionsLink.setAttribute("href", drink.instructions);
+    instructionsLink.style='color:purple'
+
+
+
+    img.setAttribute("src", drink.image);
+    buttonI.outline="red"
+
+
+    span.innerText = drink.name;
+    pIngredients.innerText = drink.ingredients;
+    instructionsLink.innerText="Instructions";
+    buttonI.innerText = "favorite";
+    
+
+
+
+
+    divImage.appendChild(img);
+    divImage.appendChild(span);
+    button.appendChild(buttonI);
+    divCardContent.appendChild(pIngredients);
+    divCardAction.appendChild(instructionsLink);
+    divCardAction.appendChild(button);
+   
+
+
+    divCard.appendChild(divImage);
+    divCard.appendChild(divCardContent);
+    divCard.appendChild(divCardAction);
+
+
+    //Button event listener
+    button.addEventListener('click',buttonClick);
+    return divCard;
+}
+
   
 const renderCreateDrinkForm=()=>{
     //creates the drink form
@@ -163,7 +223,6 @@ const renderCreateDrinkForm=()=>{
     form.appendChild(submitButton);
 
 
-
     form.addEventListener("submit",submitFormEvent)
 
     mainDiv().appendChild(h1);
@@ -174,23 +233,8 @@ const renderCreateDrinkForm=()=>{
 }
 
 
-//Event Listener
-const renderhDrinksListPageEvent=()=>{
-    //Event Listener for switching to drinks tab
-    drinkList().addEventListener('click',renderDrinksPage)
-}
 
-const renderHomePageEvent=()=>{
-    //Event Listener for switching to home tab
-    homePageLink().addEventListener('click',renderHomePage);
-}
-
-const renderCreateDrinkPageEvent=()=>{
-    //Event Listener for switching to create drink tab
-    createDrinkLink().addEventListener('click',renderCreateDrinkPage)
-
-}
-
+//Events
 const submitFormEvent=e=>{
     e.preventDefault();
 
@@ -212,67 +256,26 @@ const submitFormEvent=e=>{
     .then(drink=>drinks.push(drink))
 }
 
+//Event Listener
+const renderhDrinksListPageEvent=()=>{
+    //Event Listener for switching to drinks tab
+    drinkList().addEventListener('click',renderDrinksPage)
+}
+
+const renderHomePageEvent=()=>{
+    //Event Listener for switching to home tab
+    homePageLink().addEventListener('click',renderHomePage);
+}
+
+const renderCreateDrinkPageEvent=()=>{
+    //Event Listener for switching to create drink tab
+    createDrinkLink().addEventListener('click',renderCreateDrinkPage)
+
+}
+
+
 
 //Creates card
-const createCard=(drink)=>{
-
-    //Creates card elements
-    const divCard = document.createElement('div');
-    const divImage = document.createElement('div');
-    const divCardContent = document.createElement('div');
-    const divCardAction = document.createElement('div');
-    const img = document.createElement('img');
-    const span = document.createElement('span');
-    const pIngredients = document.createElement('p')
-    const instructionsLink= document.createElement('a')
-    const button = document.createElement('a');
-    const buttonI=document.createElement('i');
-
-    divCard.className = "card medium";
-    divImage.className = "card-image";
-    divCardContent.className = "card-content";
-    divCardAction.className = "card-action";
-    span.className = 'card-title';
-    button.className="waves-effect waves-lighten-1 purple btn";
-    button.id='like-button';
-    buttonI.className="material-icons center"
-    buttonI.id='heart-button';
-    instructionsLink.setAttribute("href", drink.instructions);
-    instructionsLink.style='color:purple'
-
-
-
-    img.setAttribute("src", drink.image);
-    buttonI.outline="red"
-
-
-    span.innerText = drink.name;
-    pIngredients.innerText = drink.ingredients;
-    instructionsLink.innerText="Instructions";
-    buttonI.innerText = "favorite";
-    
-
-
-
-
-    divImage.appendChild(img);
-    divImage.appendChild(span);
-    button.appendChild(buttonI);
-    divCardContent.appendChild(pIngredients);
-    divCardAction.appendChild(instructionsLink);
-    divCardAction.appendChild(button);
-   
-
-
-    divCard.appendChild(divImage);
-    divCard.appendChild(divCardContent);
-    divCard.appendChild(divCardAction);
-
-
-    //Button event listener
-    button.addEventListener('click',buttonClick);
-    return divCard;
-}
 
 
 //DOM Loads
