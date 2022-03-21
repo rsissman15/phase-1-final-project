@@ -1,3 +1,16 @@
+
+//DOM Loads
+document.addEventListener('DOMContentLoaded',()=>{
+    fetchDrinks();
+    renderDrinksListPageEvent();
+    renderHomePageEvent();
+    renderCreateDrinkPageEvent();
+    
+})
+
+
+
+
 //Global variables
 const drinkList = () =>document.getElementById("drinks-list");
 const mainDiv=()=>document.getElementById("main");
@@ -7,16 +20,15 @@ let drinks=[];
 
 //Functions
 const fetchDrinks=()=>{
-    //Function to fetch drinks from db.json
     fetch("http://localhost:3000/drinks")
         .then(res=>res.json())
         .then(data=>{
-        drinks=data;
+            drinks=data;
+            debugger;
     })
 }
 
 const buttonClick=(event)=>{
-    //Function to handle button click
     if(event.target.style.color==="red"){
         event.target.style.color="white";
     }
@@ -26,8 +38,9 @@ const buttonClick=(event)=>{
     }
 }
 
+
+
 const resetMain=()=>{
-    //Resets the page
     mainDiv().innerHTML="";
 }
 
@@ -35,11 +48,8 @@ const resetMain=()=>{
 //Render 
 
 const renderDrinksPage=(e)=>{
-    //Event Handler for when you switch to the drink tabs
-    e.preventDefault();
     resetMain();
 
-     //create header and style it
      const h3=document.createElement('h3');
      h3.innerHTML="Drink List";
      h3.className="center-align";
@@ -47,12 +57,10 @@ const renderDrinksPage=(e)=>{
      h3.style.paddingTop="10px";
      mainDiv().appendChild(h3);
 
-     renderDrinks();  
+     renderDrinks();
 }
 
 const renderHomePage=e=>{
-    //Event handler for when you switch back to the home page
-    e.preventDefault();
     resetMain();
    
     const h1 = document.createElement('h1');
@@ -60,10 +68,10 @@ const renderHomePage=e=>{
     h1.innerText = 'Welcome to My Cocktail Site'
     mainDiv().appendChild(h1);
 
+
 }
 
 const renderCreateDrinkPage=e=>{
-    //resets the create drink page and formats the page
     e.preventDefault();
     resetMain();
     renderCreateDrinkForm();
@@ -72,7 +80,6 @@ const renderCreateDrinkPage=e=>{
 }
 
 const renderDrink = drink => {
-    // render the drink to the page
     const col = document.createElement('div');
     col.className = "col s10 m3"
   
@@ -81,25 +88,11 @@ const renderDrink = drink => {
     return col;
   }
 
-const renderDrinks = () => {
-    // iterate over meals and display them as cards
-    const row = document.createElement('row');
-    row.className = "row";
-  
-    drinks.map(drink=> {
-      const col = renderDrink(drink)
-  
-      row.appendChild(col);
-    });
-  
-    mainDiv().appendChild(row);
-  }
 
-
-//Create Card and Form
+  //Create Card and Form
   const createCard=(drink)=>{
 
-    //Creates card elements
+
     const divCard = document.createElement('div');
     const divImage = document.createElement('div');
     const divCardContent = document.createElement('div');
@@ -110,6 +103,9 @@ const renderDrinks = () => {
     const instructionsLink= document.createElement('a')
     const button = document.createElement('a');
     const buttonI=document.createElement('i');
+
+
+    
 
     divCard.className = "card medium";
     divImage.className = "card-image";
@@ -122,6 +118,7 @@ const renderDrinks = () => {
     buttonI.id='heart-button';
     instructionsLink.setAttribute("href", drink.instructions);
     instructionsLink.style='color:purple'
+    
 
 
 
@@ -144,6 +141,9 @@ const renderDrinks = () => {
     divCardContent.appendChild(pIngredients);
     divCardAction.appendChild(instructionsLink);
     divCardAction.appendChild(button);
+
+
+
    
 
 
@@ -154,12 +154,30 @@ const renderDrinks = () => {
 
     //Button event listener
     button.addEventListener('click',buttonClick);
+   
+
+
     return divCard;
 }
 
+const renderDrinks = () => {
+    const row = document.createElement('row');
+    row.className = "row";
+  
+    drinks.map(drink=> {
+      const col = renderDrink(drink)
+  
+      row.appendChild(col);
+    });
+  
+    mainDiv().appendChild(row);
+  }
+
+
+
+
   
 const renderCreateDrinkForm=()=>{
-    //creates the drink form
     const h1 = document.createElement('h1');
     const form=document.createElement('form');
     const nameDiv=document.createElement('div');
@@ -237,6 +255,7 @@ const renderCreateDrinkForm=()=>{
 //Events
 const submitFormEvent=e=>{
     e.preventDefault();
+    alert("Added to Drink List")
 
     fetch('http://localhost:3000/drinks',{
         method: 'POST',
@@ -254,40 +273,35 @@ const submitFormEvent=e=>{
     })
     .then(res=>res.json())
     .then(drink=>drinks.push(drink))
+    .catch(error=>{
+        alert('Did not post')
+        console.log(error.message)
+    })
 }
 
+
+
 //Event Listener
-const renderhDrinksListPageEvent=()=>{
-    //Event Listener for switching to drinks tab
+const renderDrinksListPageEvent=()=>{
     drinkList().addEventListener('click',renderDrinksPage)
+
 }
 
 const renderHomePageEvent=()=>{
-    //Event Listener for switching to home tab
     homePageLink().addEventListener('click',renderHomePage);
 }
 
 const renderCreateDrinkPageEvent=()=>{
-    //Event Listener for switching to create drink tab
     createDrinkLink().addEventListener('click',renderCreateDrinkPage)
-
 }
 
 
 
-//Creates card
 
 
-//DOM Loads
 
-document.addEventListener('DOMContentLoaded',()=>{
-    fetchDrinks();
-    renderhDrinksListPageEvent();
-    renderHomePageEvent();
-    renderCreateDrinkPageEvent();
-    
 
-    
-})
+
+
 
 

@@ -90,6 +90,20 @@
       "ingredients": "Tequila, Lime juice, Grapefruit soda",
       "instructions": "https://www.liquor.com/recipes/paloma/",
       "id": 13
+    },
+    {
+      "name": "Sex on the Beach",
+      "image": "https://bellyfull.net/wp-content/uploads/2021/04/Sex-On-the-Beach-Cocktail-blog.jpg",
+      "ingredients": "Vodka, Peach Schnapps, Cranberry juice, Grapefruit juice",
+      "instructions": "https://www.delish.com/cooking/recipe-ideas/a30275456/sex-on-the-beach-cocktail-recipe/",
+      "id": 14
+    },
+    {
+      "name": "Aperol Spritz",
+      "image": "https://previews.123rf.com/images/magone/magone1705/magone170500154/78687981-glass-of-aperol-spritz-cocktail-isolated-on-white-background.jpg",
+      "ingredients": "Aperol, Prosecco, Soda Water",
+      "instructions": "https://www.bbcgoodfood.com/recipes/aperol-spritz",
+      "id": 15
     }
   ]
 }
